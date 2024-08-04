@@ -1,4 +1,4 @@
-# real_shoping
+# E-commerce app
 
 E-commerce 
 
