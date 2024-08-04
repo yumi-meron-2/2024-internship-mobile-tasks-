@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
-import 'package:real_shoping/details.dart';
+import 'details.dart';
 
 class CardWidget extends StatefulWidget {
   final Image shoeImage;

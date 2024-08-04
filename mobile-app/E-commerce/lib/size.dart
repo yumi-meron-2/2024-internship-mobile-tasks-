@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
-import 'package:real_shoping/details.dart';
-
 class ShoeSize extends StatelessWidget {
   final int shoeSize;
   final bool isSelected;

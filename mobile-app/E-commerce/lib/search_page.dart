@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'custom_card.dart';
-import 'slider.dart';
-import 'textfield.dart';
 import 'bottom_sheet.dart';
 import 'search_text_field.dart';
 

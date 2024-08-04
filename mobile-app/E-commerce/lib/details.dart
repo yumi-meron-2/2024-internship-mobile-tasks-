@@ -2,10 +2,6 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'custom_card.dart';
-import 'slider.dart';
-import 'textfield.dart';
-import 'package:image_picker/image_picker.dart';
 import 'size.dart';
 
 class DetailsPage extends StatefulWidget {
