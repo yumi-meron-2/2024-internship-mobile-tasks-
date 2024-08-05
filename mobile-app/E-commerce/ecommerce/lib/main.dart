@@ -11,6 +11,8 @@ import 'product.dart';
 import 'product_provider.dart';
 import 'package:provider/provider.dart';
 import 'add_product.dart';
+import 'animation.dart';
+
 
 void main() {
   runApp(ChangeNotifierProvider
@@ -39,7 +41,8 @@ class MainApp extends StatelessWidget {
         floatingActionButton: Builder(
           builder: (context) {
             return FloatingActionButton(
-              onPressed: (){Navigator.pushNamed(context, "/addproduct");},
+              onPressed: () {
+                Navigator.of(context).push(createFadeRoute(AddProduct()));},
               shape: CircleBorder() ,
               backgroundColor: Color.fromRGBO(63, 81, 243, 1),
               child: Icon(Icons.add, color: Colors.white,size: 40,  ),

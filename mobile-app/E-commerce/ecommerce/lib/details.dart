@@ -5,6 +5,7 @@ import 'update_page.dart';
 import 'product.dart';
 import 'package:provider/provider.dart';
 import 'product_provider.dart';
+import 'animation.dart';
 
 class DetailsPage extends StatefulWidget {
   final Product product;
@@ -131,8 +132,13 @@ class _DetailsPageState extends State<DetailsPage>{
                       width: 152,
                       height: 50,
                       child: ElevatedButton(
-                        onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateProduct(product:product)));},
-                        style: ButtonStyle(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          createFadeRoute(UpdateProduct(product: product)),
+                        );
+                      } ,                       
+                      style: ButtonStyle(
                           backgroundColor: WidgetStateProperty.all(Color.fromRGBO(63, 81, 243, 1),
                           ),
                           shape: WidgetStateProperty.all(

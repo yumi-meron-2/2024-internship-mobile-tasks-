@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'search_page.dart';
+import 'animation.dart';
 
 class CustomAvailableProducts extends StatelessWidget{
   @override
@@ -33,7 +34,7 @@ class CustomAvailableProducts extends StatelessWidget{
           ),
           alignment: Alignment.center,
           child: IconButton(
-            onPressed: (){Navigator.pushNamed(context, "/searchpage");},
+            onPressed: (){Navigator.of(context).push(createFadeRoute(SearchPage()));},
             icon: Icon(
               Icons.search,
               color: Color.fromRGBO(217, 217, 217, 1),

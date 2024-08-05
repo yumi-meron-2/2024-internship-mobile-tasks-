@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'product.dart';
+import 'animation.dart';
 
 
 import 'details.dart';
@@ -34,7 +35,8 @@ class _CardWidgetState extends State<CardWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => DetailsPage(product: widget.product)));},
+         Navigator.of(context).push(createFadeRoute(DetailsPage(product: widget.product)));
+         },
       child: Container(
         color: Colors.white,
         // width: 500,
