@@ -5,7 +5,7 @@
 1. Screen Navigation ✔️
 2. Named Routes ✔️
 3. Passing Data Between Screens ✔️
-4. Navigation Animations --
+4. Navigation Animations ✔️
 5. Handling Navigation Events ✔️
 
 
