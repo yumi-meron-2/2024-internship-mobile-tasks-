@@ -46,16 +46,16 @@ This Flutter e-commerce mobile app allows users to create, view, update, and del
 ```
 
 ### Main Files
-main.dart: The entry point of the application and The home screen that displays the list of products.
-product.dart: The Product class that defines the product model.
-product_provider.dart: The ProductProvider class that manages the state of the product list.
-add_product.dart: The screen for adding a product.
-update_product.dart: The screen for editing a product.
-details.dart: The screen for viewing the details of a selected product.
-search_page.dart: the screen for searching products.
-image_pick.dart: The custom image picker widget.
-custum_card.dart: The custom product card widget.
-textfield.dart: A reusable text field widget.
+- main.dart: The entry point of the application and The home screen that displays the list of products.
+- product.dart: The Product class that defines the product model.
+- product_provider.dart: The ProductProvider class that manages the state of the product list.
+- add_product.dart: The screen for adding a product.
+- update_product.dart: The screen for editing a product.
+- details.dart: The screen for viewing the details of a selected product.
+- search_page.dart: the screen for searching products.
+- image_pick.dart: The custom image picker widget.
+- custum_card.dart: The custom product card widget.
+- textfield.dart: A reusable text field widget.
 
 ### Usage
 #### Navigation and Routing
