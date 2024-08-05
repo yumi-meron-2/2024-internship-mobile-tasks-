@@ -33,7 +33,7 @@ class CustomAvailableProducts extends StatelessWidget{
           ),
           alignment: Alignment.center,
           child: IconButton(
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> SearchPage(),),);},
+            onPressed: (){Navigator.pushNamed(context, "/searchpage");},
             icon: Icon(
               Icons.search,
               color: Color.fromRGBO(217, 217, 217, 1),
@@ -43,5 +43,6 @@ class CustomAvailableProducts extends StatelessWidget{
         ]
       ),
     );
+    
   }
 }

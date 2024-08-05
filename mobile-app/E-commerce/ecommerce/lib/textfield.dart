@@ -7,11 +7,16 @@ class MyTextField extends StatefulWidget{
   final bool iswide;
   final bool dolla;
   final bool isBottom;
+  final String initialValue;
+  final ValueChanged<String>? onChanged;
+
   const MyTextField({
     super.key, 
     this.iswide = false,
     this.dolla = false,
     this.isBottom = false,
+    this.initialValue = '',
+    this.onChanged,
   }) ;
   
 
@@ -20,9 +25,19 @@ class MyTextField extends StatefulWidget{
 }
 
 class _MyTextFieldState extends State<MyTextField>{
+  late TextEditingController _controller;
+  @override
+  void initState(){
+    super.initState();
+    _controller = TextEditingController(text: widget.initialValue);
+  }
 
-  final TextEditingController _controller = TextEditingController();
-  String _inputText = '';
+  @override
+  void dispose(){
+    _controller.dispose();
+    super.dispose();
+  }
+  
 
   @override 
   Widget build(BuildContext context){
@@ -37,30 +52,25 @@ class _MyTextFieldState extends State<MyTextField>{
              
               decoration: InputDecoration(
                 border: InputBorder.none,
-                
-             
                 suffixIcon: widget.dolla
                 ?
                  Padding(padding: const EdgeInsets.only(right: 2,top: 12),
-                 child: Text(
-                  '\$',
-                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: Colors.black,),
-                 ))
+                  child: Text(
+                    '\$',
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: Colors.black,),
+                  ))
                  : null,
                 
                    
               ),
               onChanged: (text){
-                setState((){
-                  _inputText = text;
+                if (widget.onChanged != null){
+                  widget.onChanged!(text);
                   // debugPrint(widget.iswide.toString());
-                });
+                }
               },
-            )
-          
-          ]
-        
-        
+            ),
+          ],
         ),
     );
   }

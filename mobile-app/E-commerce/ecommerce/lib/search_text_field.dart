@@ -27,7 +27,7 @@ class _MySearchFieldState extends State<MySearchField>{
       decoration: InputDecoration(
       border: InputBorder.none,
         
-      hintText: 'Search',
+      hintText: '    Search',
 
       suffixIcon:   Padding(padding: const EdgeInsets.all(10),
       child: Icon( Icons.arrow_right_alt,

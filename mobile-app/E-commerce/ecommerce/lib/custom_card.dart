@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'product.dart';
+
 
 import 'details.dart';
 
 class CardWidget extends StatefulWidget {
+  final Product product;
   final Image shoeImage;
-  final Text shoeName, shoeDescription;
-  final int price;
+  final Text shoeName, shoeDescription,shoeCategory;
+  final double price;
   final double rating;
   final Text dolla = Text('\$',style: TextStyle(fontWeight: FontWeight.w500, fontFeatures: [FontFeature.enable('palt')],fontSize: 12,));
   final Text openBracket = Text('(', style: TextStyle(color: Colors.grey, fontFeatures: [FontFeature.enable('palt')],fontSize: 10,)); 
@@ -15,9 +18,11 @@ class CardWidget extends StatefulWidget {
     Key? key,
     required this.shoeImage,
     required this.shoeName,
+    required this.shoeCategory,
     required this.shoeDescription,
     required this.price,
     required this.rating,
+    required this.product,
   }) : super(key: key);
 
   @override
@@ -28,7 +33,8 @@ class _CardWidgetState extends State<CardWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> DetailsPage(),),);},
+      onTap: () {
+                Navigator.push(context,MaterialPageRoute(builder: (context) => DetailsPage(product: widget.product)));},
       child: Container(
         color: Colors.white,
         // width: 500,
@@ -42,10 +48,15 @@ class _CardWidgetState extends State<CardWidget> {
             ),
             child: Column(
               children: [
-                widget.shoeImage,
+                Container(
+                  width:366,
+                  height: 155,
+                  child: widget.shoeImage,
+                ),
+                
                 SizedBox(height: 8),
                 
-                Padding(padding: EdgeInsets.all(16.0),
+                Padding(padding: EdgeInsets.all(10.0),
                 child: Column(
                   children: [
                     Row(
@@ -56,7 +67,7 @@ class _CardWidgetState extends State<CardWidget> {
                     SizedBox(height: 4),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [ widget.shoeDescription ,
+                      children: [ widget.shoeCategory ,
                         Row(
                           children: [
                             Icon(Icons.star, color: Color.fromRGBO(255, 215, 0, 1), size: 19),

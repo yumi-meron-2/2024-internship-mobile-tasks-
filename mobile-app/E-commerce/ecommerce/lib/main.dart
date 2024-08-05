@@ -1,38 +1,45 @@
+import 'package:ecommerce/details.dart';
 import 'package:flutter/material.dart';
-
 import 'custom_title.dart';
 import 'custom_actions.dart'; 
 import 'custom_available_product.dart';
 import 'custom_card.dart';
+import 'search_page.dart';
+import 'update_page.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'product.dart';
+import 'product_provider.dart';
+import 'package:provider/provider.dart';
 import 'add_product.dart';
+
 void main() {
-  runApp(MainApp());
+  runApp(ChangeNotifierProvider
+  (create: (context) => ProductProvider(),
+    child: MainApp()
+    )
+  );
 }
 
 class MainApp extends StatelessWidget {
-  final Image image = Image.asset('images/shoe11.png');
-  final Text shoeName = Text('Derby Leather Shoes',style: TextStyle(color:Color.fromRGBO(62, 62, 62, 1), fontWeight: FontWeight.w500,fontSize: 20,),);
-  final Text shoeDescription = Text( "Men's shoe",style: TextStyle(color: Colors.grey,fontSize: 10,),);
-  final int price = 120;
-  final double rating = 4.0;
   
                       
   MainApp({super.key});
+
+    
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme,),),
       debugShowCheckedModeBanner: false,
+
       home: Scaffold(
         backgroundColor: Colors.white,
         floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
         floatingActionButton: Builder(
           builder: (context) {
             return FloatingActionButton(
-              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> AddProduct(),),);},
+              onPressed: (){Navigator.pushNamed(context, "/addproduct");},
               shape: CircleBorder() ,
               backgroundColor: Color.fromRGBO(63, 81, 243, 1),
               child: Icon(Icons.add, color: Colors.white,size: 40,  ),
@@ -70,37 +77,35 @@ class MainApp extends StatelessWidget {
               SizedBox(height: 8),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.79,
-                child: ListView(
-                  children: [
-                    CardWidget(
-                      shoeImage: this.image,
-                      shoeName: this.shoeName,
-                      shoeDescription: this.shoeDescription,
-                      price: 120,
-                      rating: 4.0,
-                    ),
-                    CardWidget(
-                      shoeImage: this.image,
-                      shoeName: this.shoeName,
-                      shoeDescription: this.shoeDescription,
-                      price: 120,
-                      rating: 4.0,
-                    ),
-                   CardWidget(
-                      shoeImage: this.image,
-                      shoeName: this.shoeName,
-                      shoeDescription: this.shoeDescription,
-                     price: 120,
-                     rating: 4.0,
-                   ),
-                  ],
+                child: Consumer<ProductProvider>(
+                  builder:(context, product_provider, child) {
+                    return ListView(
+                      children: [
+                        for (var product in product_provider.products)
+                          CardWidget(
+                            product: product,
+                            shoeName: Text(product.name,style: TextStyle(color:Color.fromRGBO(62, 62, 62, 1), fontWeight: FontWeight.w500,fontSize: 20,)), 
+                            shoeImage: Image.asset(product.imagePath),
+                            shoeCategory: Text(product.category, style: TextStyle(color: Colors.grey,fontSize: 10,)) ,
+                            shoeDescription: Text(product.description,style :TextStyle(color: Color.fromRGBO(102, 102, 102, 1),fontSize: 14, fontWeight: FontWeight.w500,)),
+                            price: product.price,
+                            rating: product.rating,
+                            ),
+                      ],
+                    );
+                  }
                 ),
               ),
             ]
           )
         )
-      
-        ),
+      ),
+      routes: {
+        "/addproduct" : (context) => AddProduct(),
+        "/searchpage" : (context) => SearchPage(),
+
+
+      },
     
     );
   }
