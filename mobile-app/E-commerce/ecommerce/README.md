@@ -60,22 +60,22 @@ This Flutter e-commerce mobile app allows users to create, view, update, and del
 ### Usage
 #### Navigation and Routing
 
-1. # Screen Navigation:
+1. Screen Navigation:
 The app has Four main screens: Home Screen, Add/update Product Screen, search screen and View Product Screen .
 Implemented using Flutter's built-in navigation methods.
 
-2. # Named Routes:
+2. Named Routes:
 Defined named routes for each screen to facilitate navigation.
 
-3. # Passing Data Between Screens:
+3. Passing Data Between Screens:
 - When adding or editing a product, users can input the product's title and description.
 Product data is passed between the Home Screen and Add/Edit Product Screen.
 - also product data is transfered from home screen and details screen.
   
-4. # Navigation Animations:
+4. Navigation Animations:
 Implemented smooth navigation animations and transitions to enhance the user experience.
 
-5. # Handling Navigation Events:
+5. Handling Navigation Events:
 Proper handling of the back button navigation to ensure the app navigates back to the Home Screen.
 
 ### Adding a Product
