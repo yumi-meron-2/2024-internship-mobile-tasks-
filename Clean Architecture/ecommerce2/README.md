@@ -1,9 +1,9 @@
 # Domain Layer Refactoring for eCommerce App
 
-### Entity Implementation (2 point):
+### Entity Implementation:
 ✅ Accurate and comprehensive implementation of the product entity class with all required attributes and methods.
 
-### Use Case Implementation (6 points):
+### Use Case Implementation:
 ✅ Accurate implementation of the ViewAllProductsUsecase use case class following callable class principles.
 
 ✅ Accurate implementation of the ViewProductUsecase use case class with correct parameter handling and logic.
