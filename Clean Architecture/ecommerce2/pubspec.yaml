@@ -24,6 +24,7 @@ dependencies:
   uuid: any
   cupertino_icons: ^1.0.2
   internet_connection_checker: any
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:
