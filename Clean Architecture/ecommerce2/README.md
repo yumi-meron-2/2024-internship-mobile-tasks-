@@ -38,10 +38,10 @@ Defined use cases for each of the CRUD operations:
 = UpdateProduct: Updates an existing product.
 - DeleteProduct: Removes a product.
 - GetProduct: Retrieves the details of a product.
-- 
+ 
 ### Repositories
 ##### ProductRepository
-Implements methods to perform CRUD operations using the defined use cases.
+Abstract class to perform CRUD operations using the defined use cases.
 
 ### Data Overview Layer
 #### ProductModel
