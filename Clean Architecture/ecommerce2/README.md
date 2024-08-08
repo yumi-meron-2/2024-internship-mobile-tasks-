@@ -2,7 +2,7 @@
 ## Introduction
 This project is an eCommerce mobile app built using Flutter. It follows Clean Architecture principles and employs Test-Driven Development (TDD) practices. The app supports CRUD (Create, Read, Update, Delete) operations for products.
 
-###Project Structure
+### Project Structure
 The project is organized according to Clean Architecture principles:
 ```
 lib/
