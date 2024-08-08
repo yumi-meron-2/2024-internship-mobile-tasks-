@@ -6,7 +6,7 @@ import 'package:ecommerce2/features/product/domain/usecase/get_product.dart';
 import '../../helpers/test_helper.mocks.dart';
 
 void main(){
-  ProductEntity product = ProductEntity(id: '1', name: 'name1', price: 1, rating: 5, imageUrl: 'image1', description: 'description1');
+  ProductEntity product = ProductEntity(id: '1', name: 'name1', price: 1, imageUrl: 'image1', description: 'description1');
 
   late GetProductUseCase getProductUseCase;
   late MockProductRepository mockProductRepository;

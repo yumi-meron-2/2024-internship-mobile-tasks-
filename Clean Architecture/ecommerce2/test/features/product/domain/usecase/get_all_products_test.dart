@@ -8,8 +8,8 @@ import '../../helpers/test_helper.mocks.dart';
 
 void main(){
   List<ProductEntity> testProducts = [
-    ProductEntity(id: '1', name: 'shoe1', price: 1, rating: 5, imageUrl: 'image1', description: 'description1'),
-    ProductEntity(id: '2', name: 'shoe2', price: 2, rating: 5, imageUrl: 'image2', description: 'description2'),
+    ProductEntity(id: '1', name: 'shoe1', price: 1, imageUrl: 'image1', description: 'description1'),
+    ProductEntity(id: '2', name: 'shoe2', price: 2, imageUrl: 'image2', description: 'description2'),
 
   ];
   late GetAllProductsUseCase getAllProductsUseCase;
