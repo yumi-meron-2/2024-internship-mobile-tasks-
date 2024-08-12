@@ -8,3 +8,13 @@ class ServerException implements Exception {
     return message;
   }
 }
+class NetworkException implements Exception {
+  final String message;
+
+  NetworkException([this.message = 'An unknown server error occurred']);
+
+  @override 
+  String toString() {
+    return message;
+  }
+}

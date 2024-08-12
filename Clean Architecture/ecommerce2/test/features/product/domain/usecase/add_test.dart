@@ -24,13 +24,13 @@ void main(){
     //arrange
     when(
       mockProductRepository.addProduct(product)
-    ).thenAnswer((_) async => Right(null));
+    ).thenAnswer((_) async => Right(product));
 
     //act 
     final result = await addProductUseCase.execute(product);
 
     //assert
-    expect(result, Right(null));
+    expect(result, Right(product));
    }
   );
 }

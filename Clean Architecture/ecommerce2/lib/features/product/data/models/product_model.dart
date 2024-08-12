@@ -8,17 +8,19 @@ class ProductModel extends ProductEntity{
   // final String description;
 
   ProductModel({
-    required String id,//this.id, 
-    required String name,//this.name, 
-    required int price,//this.price, 
-    required String imageUrl,//this.imageUrl, 
-    required String description, //.description,
-  }) : super(id: id, name: name, price: price, imageUrl: imageUrl, description: description) ;
+    required super.id,//this.id, 
+    required super.name,//this.name, 
+    required super.price,//this.price, 
+    required super.imageUrl,//this.imageUrl, 
+    required super.description, //.description,
+  }) ;
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
+    
     id: json['id'], 
     name: json['name'], 
-    price: json['price'], 
+
+    price:(json['price'] as num?)?.toDouble() ?? 0.0, 
     imageUrl: json['imageUrl'], 
     description: json['description']
   );
@@ -30,5 +32,7 @@ class ProductModel extends ProductEntity{
     'imageUrl': imageUrl,
   
   };
+
+  ProductEntity toEntity() => ProductEntity(id: id, name: name, price: price, imageUrl: imageUrl, description: description);
 
 }

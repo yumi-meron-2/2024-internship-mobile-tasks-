@@ -15,16 +15,16 @@ dependencies:
   dartz: any
   get_it: any
   flutter_bloc: any
-  shared_preferences: any
   meta: any
   rxdart: any
-  bloc: any
+  bloc: ^8.1.4
   bloc_test: any
   intl: any
   uuid: any
   cupertino_icons: ^1.0.2
   internet_connection_checker: any
   http: ^1.2.2
+  shared_preferences : ^2.3.1
 
 dev_dependencies:
   flutter_test:

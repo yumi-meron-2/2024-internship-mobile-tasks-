@@ -10,6 +10,6 @@ class UpdateProductUseCase{
   UpdateProductUseCase(this.productRepository);
 
   Future<Either<Failure, ProductEntity>> execute(ProductEntity product){
-    return productRepository.updateProduct(product);
+    return productRepository.updateProduct(product.id, product.name, product.description, product.price);
   }
 }

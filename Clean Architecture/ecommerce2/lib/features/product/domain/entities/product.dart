@@ -13,7 +13,7 @@ class ProductEntity extends Equatable{
   });
   final String id;
   final String name;
-  final int price;
+  final double price;
   final String imageUrl;
   final String description;
 
