@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import '../../domain/entities/product.dart';
 
 class ProductModel extends ProductEntity{
@@ -32,7 +34,17 @@ class ProductModel extends ProductEntity{
     'imageUrl': imageUrl,
   
   };
+ProductEntity toEntity() => ProductEntity(id: id, name: name, price: price, imageUrl: imageUrl, description: description);
 
-  ProductEntity toEntity() => ProductEntity(id: id, name: name, price: price, imageUrl: imageUrl, description: description);
+factory ProductModel.fromEntity(ProductEntity entity) {
+    return ProductModel(
+      id: entity.id,
+      imageUrl: entity.imageUrl,
+      name: entity.name,
+      description: entity.description,
+      price: entity.price,
+    );
 
+  
+}
 }

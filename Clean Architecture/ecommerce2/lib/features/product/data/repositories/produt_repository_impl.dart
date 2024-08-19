@@ -20,9 +20,20 @@ class ProductRepositoryImpl extends ProductRepository{
 
 
   @override
-  Future<Either<Failure, ProductEntity>> addProduct(ProductEntity product) {
-    // TODO: implement addProduct
-    throw UnimplementedError();
+  Future<Either<Failure, ProductEntity>> addProduct(ProductEntity product) async{
+    if(await networkInfo.isConnected){
+      try{
+        final result = await productRemoteDataSource.addProduct(ProductModel.fromEntity(product));
+
+        return Right(result);
+      }on ServerException{
+        return const Left(ServerFailure('An error has occurred'));
+      } on SocketException{
+        return const Left(ConnectionFailure('Failed to connect to the network'));
+      }
+    }else{
+      throw Left(NetworkException('No Internet Connection'));
+    }
   }
 
   @override
@@ -49,13 +60,17 @@ class ProductRepositoryImpl extends ProductRepository{
         final result = await productRemoteDataSource.getAllProducts();
       
         var listOfProduct = result.map((model) => (model).toEntity()).toList() as List<ProductEntity>;
+
         return Right(listOfProduct);
+
       } on ServerException{
         return const Left(ServerFailure('An error has occurred'));
+
       } on SocketException{
         return const Left(ConnectionFailure('Failed to connect to the network'));
       }
     }else {
+      
        List<ProductModel> productModels = localDataSource.getAllProducts();
        List<ProductEntity> productEntities = productModels.map((productModel) => productModel.toEntity()).toList();
        return Right(productEntities);

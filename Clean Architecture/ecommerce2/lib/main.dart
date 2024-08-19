@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'features/product/data/data_sources/remote_data_source.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ecommerce2/features/product/presentation/bloc/add_product_page_bloc/add_product_bloc.dart';
+import 'features/product/presentation/bloc/add_product_page_bloc/add_product_bloc.dart';
+import 'features/product/presentation/bloc/details_page_bloc/details_page_bloc.dart';
+import 'features/product/presentation/bloc/home/get_all_products_bloc.dart';
+import 'features/product/presentation/bloc/update_page_bloc/update_page_bloc.dart';
+import 'features/product/presentation/pages/home_page/home_page.dart';
+import 'service_locator.dart';
 
-void main() async {
-  var myClient = http.Client() ;
-  var prods = ProductRemoteDataSourceImpl(client: myClient);
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-  var products = await prods.getAllProducts();
-  print(products);
+  await setup();
   runApp(const MainApp());
 }
 
@@ -16,12 +20,20 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MultiBlocProvider( providers: [
+      BlocProvider(
+      create: (context) => DetailsPageBloc(deleteProductUseCase: getIt()),
+    ),
+    BlocProvider(
+      create: (context) => GetAllProductsBloc(getAllProductsUseCase: getIt())..add(GetAllProductsEvent()),
+    ),
+    BlocProvider(
+      create: (context) => UpdatePageBloc(updateProductUseCase: getIt())),
+     
+    BlocProvider(
+      create:(context) => AddProductBloc(addProductUseCase: getIt()) ),
+    ],
+    child: MaterialApp(home: HomePage()),
     );
   }
 }

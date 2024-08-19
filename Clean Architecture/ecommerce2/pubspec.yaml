@@ -25,6 +25,9 @@ dependencies:
   internet_connection_checker: any
   http: ^1.2.2
   shared_preferences : ^2.3.1
+  image_picker: ^0.8.7+1
+  google_fonts: ^5.0.0
+  http_parser: ^4.0.2
 
 dev_dependencies:
   flutter_test:
@@ -34,3 +37,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - images/shoe11.png
+    - images/shoe2.png
+    - images/uggs.jpg
+    - images\heels.jpg
